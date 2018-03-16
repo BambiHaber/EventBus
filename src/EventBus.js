@@ -122,3 +122,9 @@ class EventBus {
 		this.listeners.length = 0;
 	}
 }
+
+if( typeof exports !== 'undefined' ) {
+	if( typeof module !== 'undefined' && module.exports ) {
+		exports = module.exports = EventBus
+	}
+}
