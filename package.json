@@ -16,7 +16,7 @@
     "url": "https://github.com/BambiHaber/EventBus/issues"
   },
   "homepage": "https://github.com/BambiHaber/EventBus#readme",
-  "dependencies": {
+  "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-es6-transpiler": "^1.0.1",
     "gulp-rename": "^1.2.2",

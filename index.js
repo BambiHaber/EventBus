@@ -1,5 +1,5 @@
-EventBus = require('./src/EventBus');
+var EventBus = require('./src/EventBus');
 
 module.exports = function (eb) {
-	return eb;
+	return EventBus;
 };
