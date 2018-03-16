@@ -1,5 +1,5 @@
 {
-  "name": "eventbus",
+  "name": "bambis-eventbus",
   "version": "1.0.0",
   "description": "An ES6 event bus class to be used as a global eventbus or to extend objects",
   "main": "index.js",
