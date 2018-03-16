@@ -1,0 +1,26 @@
+{
+  "name": "eventbus",
+  "version": "1.0.0",
+  "description": "An ES6 event bus class to be used as a global eventbus or to extend objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BambiHaber/EventBus.git"
+  },
+  "author": "Bambi Haber",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BambiHaber/EventBus/issues"
+  },
+  "homepage": "https://github.com/BambiHaber/EventBus#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-es6-transpiler": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-string-replace": "^1.0.0",
+    "gulp-uglify": "^3.0.0"
+  }
+}

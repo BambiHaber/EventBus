@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Eventbus example</title>
+    <script type="text/javascript" src="../dist/EventBus.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Example with global object
+            let eventBus = new EventBus();
+
+            eventBus.listenTo('hello', () => {
+                console.log('hello world from eventbus instance')
+            });
+
+            eventBus.trigger('hello');
+
+            class Person extends EventBus {
+                constructor(name) {
+                    super();
+                    this.name = name
+                }
+
+                sayHello() {
+                    this.trigger('speak', 'hello from ' + this.name)
+                }
+            }
+
+            class MessageCenter extends EventBus {
+                constructor() {
+                    super();
+                }
+
+                addPerson(person) {
+                    this.listenTo(person, 'speak', this.onSpeak.bind(this));
+                }
+
+                onSpeak(message) {
+                    console.log('Incoming message from someBody(Person derived class): ', message)
+                }
+            }
+
+
+            let john = new Person('john');
+
+            let messageCenter = new MessageCenter();
+            messageCenter.addPerson(john);
+
+            john.sayHello();
+        });
+    </script>
+</head>
+<body>
+<h1>Please open console to watch demonstration of code</h1>
+<p>
+    <textarea style="width: 100%;height:100%;disabled='disabled';display: block;min-height: 100vh;" disabled='disabled'>
+
+        // Example with global object
+        let eventBus = new EventBus();
+
+        eventBus.listenTo('hello', ()=>{console.log('hello world')});
+        eventBus.trigger('hello');
+
+        class Person extends EventBus{
+        constructor(name) {
+        this.name = name
+        }
+
+        sayHello() {
+        this.trigger('speak', 'hello from ' + this.name)
+        }
+        }
+
+        class MessageCenter extends EventBus {
+        constructor() {
+
+        }
+
+        addPerson(person) {
+        this.listenTo(person, 'speak', this.onSpeak.bind(this));
+        }
+
+        onSpeak(message) {
+        console.log('Incoming message from someBody: ', message)
+        }
+        }
+
+
+        let john = new Person('john');
+
+        let messageCenter = new MessageCenter();
+        messageCenter.addPerson(john)
+
+        john.sayHello();
+    </textarea>
+</p>
+</body>
+</html>
